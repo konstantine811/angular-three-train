@@ -1,0 +1,23 @@
+<ul class="tree-node">
+  <li class="tree-node__item" *ngFor="let item of menuTreeData">
+    <div
+      (click)="openMenu(item)"
+      class="tree-node__content"
+      [ngStyle]="{ 'margin-left.px': item.level * 25 }"
+    >
+      <div
+        *ngIf="item.children"
+        class="tree-node__open-icon"
+        [ngClass]="{ isOpen: item.isOpen }"
+      ></div>
+      <h4 class="tree-node__title">{{ item.title }}</h4>
+    </div>
+    <div
+      *ngIf="item.isOpen && item.children"
+      @openMenu
+      class="tree-node__nested"
+    >
+      <app-tree-node [menuTreeData]="item.children"></app-tree-node>
+    </div>
+  </li>
+</ul>

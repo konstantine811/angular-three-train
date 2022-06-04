@@ -17,7 +17,10 @@
       @openMenu
       class="tree-node__nested"
     >
-      <app-tree-node [menuTreeData]="item.children"></app-tree-node>
+      <app-tree-node
+        [menuTreeData]="item.children"
+        [isMultiOpen]="isMultiOpen"
+      ></app-tree-node>
     </div>
   </li>
 </ul>

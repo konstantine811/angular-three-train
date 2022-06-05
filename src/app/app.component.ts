@@ -24,7 +24,7 @@ export class AppComponent {
   }
 
   changeTheme(status: boolean) {
-    if (status) {
+    if (!status) {
       this.themeChangeService.current = THEME_TYPES.dark;
     } else {
       this.themeChangeService.current = THEME_TYPES.light;

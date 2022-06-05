@@ -1,4 +1,10 @@
-<div class="switch-element">
+<div
+  class="switch-element"
+  [ngClass]="{
+    'dark-shadow': !isChecked,
+    'light-shadow': isChecked
+  }"
+>
   <input
     type="checkbox"
     name="staus"
@@ -8,4 +14,5 @@
     (change)="onChenge()"
   />
   <label class="switch-element__label" for="switch-theme"></label>
+  <div class="switch-element__bg"></div>
 </div>

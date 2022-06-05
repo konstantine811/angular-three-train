@@ -1,5 +1,15 @@
-.frame {
-  position: relative;
-  min-height: 100vh;
-  background: white;
+@import "_var.scss";
+
+.bgc-primary {
+  background: $white;
+}
+
+p,
+h1,
+h2,
+h3,
+h3,
+h5,
+h6 {
+  color: $black-1;
 }

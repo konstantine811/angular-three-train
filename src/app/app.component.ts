@@ -14,8 +14,14 @@ import { setMenuTreeData } from '@core/utils/tree-node/met-tree-node.utils';
 export class AppComponent {
   readonly MENU_CONFIG: IMenuConfig[] = MENU_CONFIG;
   menuTreeData: IMenuTree[];
+  isMultiOpen = false;
 
   constructor() {
     this.menuTreeData = setMenuTreeData(this.MENU_CONFIG);
+  }
+
+  onMultiCheck(status: Event) {
+    console.log(status);
+    // this.isMultiOpen = status;
   }
 }

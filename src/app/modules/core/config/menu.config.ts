@@ -9,14 +9,6 @@ export const MENU_CONFIG: IMenuConfig[] = [
         children: [
           {
             title: 'FSub link 3',
-            children: [
-              {
-                title: 'FSub link 3',
-              },
-              {
-                title: 'FSub link 4',
-              },
-            ],
           },
           {
             title: 'FSub link 4',

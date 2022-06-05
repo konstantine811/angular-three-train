@@ -4,6 +4,7 @@ export interface IMenuConfig {
 }
 
 export interface IMenuTree {
+  id: number;
   title: string;
   isOpen: boolean;
   level: number;

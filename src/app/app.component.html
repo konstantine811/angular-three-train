@@ -1,1 +1,8 @@
-<app-tree-node [menuTreeData]="menuTreeData"></app-tree-node>
+<div class="multi-check">
+  <h5>Is Multi Open</h5>
+  <input type="checkbox" [(ngModel)]="isMultiOpen" />
+</div>
+<app-tree-node
+  [menuTreeData]="menuTreeData"
+  [isMultiOpen]="isMultiOpen"
+></app-tree-node>

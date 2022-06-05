@@ -19,9 +19,4 @@ export class AppComponent {
   constructor() {
     this.menuTreeData = setMenuTreeData(this.MENU_CONFIG);
   }
-
-  onMultiCheck(status: Event) {
-    console.log(status);
-    // this.isMultiOpen = status;
-  }
 }

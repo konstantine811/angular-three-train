@@ -8,9 +8,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './modules/shared/shared.module';
 // main components
 import { AppComponent } from './app.component';
+import { SidebarMenuComponent } from './modules/core/components/sidebar-menu/sidebar-menu.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, SidebarMenuComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

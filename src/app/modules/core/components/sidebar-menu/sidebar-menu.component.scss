@@ -1,0 +1,11 @@
+@import "_var.scss";
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.sidebar-menu {
+  position: relative;
+  height: 100%;
+}

@@ -1,7 +1,12 @@
 @import "_var.scss";
 
-.bgc-primary {
-  background-color: $black-1;
+.bgc {
+  &--primary {
+    background-color: $black-1;
+  }
+  &--secondary {
+    background-color: $black-2;
+  }
 }
 
 p,

@@ -1,5 +1,19 @@
-<div class="frame bgc-primary">
-  <app-switcher (isDarkMode)="changeTheme($event)"></app-switcher>
-  <app-sidebar-menu></app-sidebar-menu>
+<div class="frame bgc--primary">
+  <div
+    class="frame__sidebar"
+    [ngStyle]="{ 'width.px': isThinkSidebar ? '80' : '295' }"
+  >
+    <button (click)="toggleSideBar()" class="frame__switch">
+      <span
+        [ngStyle]="{
+          transform: isThinkSidebar ? 'scaleX(-1)' : 'scaleX(1)',
+          'margin-left.px': isThinkSidebar ? -4 : 7
+        }"
+        class="frame__switch-icon material-icons"
+        >arrow_back_ios</span
+      >
+    </button>
+    <app-sidebar-menu class="frame__sidebar-wrap"></app-sidebar-menu>
+  </div>
   <div class="frame-route"></div>
 </div>

@@ -6,15 +6,16 @@ import { FormsModule } from '@angular/forms';
 // own modules
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './modules/shared/shared.module';
+import { CoreModule } from './modules/core/core.module';
 // main components
 import { AppComponent } from './app.component';
-import { SidebarMenuComponent } from './modules/core/components/sidebar-menu/sidebar-menu.component';
 
 @NgModule({
-  declarations: [AppComponent, SidebarMenuComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CoreModule,
     SharedModule,
     BrowserAnimationsModule,
     FormsModule,

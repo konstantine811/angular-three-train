@@ -16,6 +16,7 @@ export class AppComponent {
   menuTreeData: IMenuTree[];
   isMultiOpen = false;
   isThinkSidebar = false;
+  showFiller = false;
 
   constructor() {
     this.menuTreeData = setMenuTreeData(this.MENU_CONFIG);

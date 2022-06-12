@@ -1,0 +1,32 @@
+@mixin swither($theme, $isLight) {
+  // switcher
+  .switch {
+    &__label {
+      background-color: map-get($theme, primary);
+      box-shadow: map-get($theme, shadow-in--lg);
+      &:after {
+        background-color: map-get($theme, primary);
+        box-shadow: map-get($theme, shadow-out--md);
+        color: map-get($theme, primary-contrast--darkness);
+      }
+      &:before {
+        background-color: transparent;
+      }
+    }
+  }
+  .switch__input:checked ~ .switch {
+    &__label {
+      @if $isLight {
+        background-color: map-get($theme, primary);
+        box-shadow: map-get($theme, shadow-in--lg);
+      } @else {
+        background-color: map-get($theme, primary-contrast);
+        box-shadow: map-get($theme, shadow-in--exsm);
+      }
+
+      &:after {
+        color: map-get($theme, primary-contrast);
+      }
+    }
+  }
+}

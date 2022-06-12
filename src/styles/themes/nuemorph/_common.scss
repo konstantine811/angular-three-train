@@ -1,0 +1,32 @@
+@mixin define-theme($theme, $isLight) {
+  .bgc {
+    &--primary {
+      background: map-get($theme, primary);
+    }
+    &--secondary {
+      background-color: map-get($theme, secondary);
+    }
+  }
+  .neumorph-shadow {
+    @if $isLight {
+      &:before {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        box-shadow: map-get($theme, shadow-out--lg);
+        filter: blur(1px);
+      }
+    } @else {
+      box-shadow: map-get($theme, shadow-out--lg);
+      border-radius: $br--lg;
+    }
+    &--br {
+      &:before {
+        border-radius: $br--lg;
+      }
+    }
+  }
+  @include swither($theme, $isLight);
+}

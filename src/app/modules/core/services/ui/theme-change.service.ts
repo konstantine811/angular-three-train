@@ -1,34 +1,36 @@
 import { Injectable } from '@angular/core';
 // config
-import { THEME_TYPES } from '@core/config/theme.config';
+import { ThemeNames, THEME_TYPES } from '@core/config/theme.config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeChangeService {
-  static defaultTheme = THEME_TYPES.dark;
+  private readonly defaultTheme = THEME_TYPES.dark;
   private readonly themeLocalName = 'theme';
-  private readonly style: HTMLLinkElement;
 
-  get current(): THEME_TYPES {
+  get current(): ThemeNames {
     return (
-      (localStorage.getItem(this.themeLocalName) as THEME_TYPES) ??
-      ThemeChangeService.defaultTheme
+      (localStorage.getItem(this.themeLocalName) as ThemeNames) ??
+      this.defaultTheme
     );
   }
 
-  set current(value: THEME_TYPES) {
+  set current(value: ThemeNames) {
+    const currentThemeClass = localStorage.getItem(this.themeLocalName);
+    if (currentThemeClass) {
+      document.body.classList.remove(currentThemeClass);
+    }
     localStorage.setItem(this.themeLocalName, value);
-    this.style.href = `/${value}.css`;
+    document.body.classList.add(value);
   }
 
   constructor() {
-    this.style = document.createElement('link');
-    this.style.rel = 'stylesheet';
-    document.head.appendChild(this.style);
-
-    if (localStorage.getItem(this.themeLocalName) !== undefined) {
-      this.style.href = `/${this.current}.css`;
+    const currentThemeClass = localStorage.getItem(this.themeLocalName);
+    if (!currentThemeClass) {
+      document.body.classList.add(this.defaultTheme);
+    } else {
+      document.body.classList.add(currentThemeClass);
     }
   }
 }

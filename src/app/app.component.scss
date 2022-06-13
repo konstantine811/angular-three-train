@@ -13,13 +13,13 @@ $diameter: 26px;
     height: 96vh;
     top: 2vh;
     left: 1vw;
-    transition: width 0.6s ease;
+    transition: width 0.6s $ease-in-out-quart;
   }
   &__switch {
     user-select: none;
     position: absolute;
-    background-color: #1c75fd;
-    box-shadow: 0px 0px 14px 6px rgba(28, 117, 253, 0.3);
+    background-color: $dark;
+    box-shadow: $dark-shadow-out--md;
     width: $diameter;
     height: $diameter;
     display: flex;
@@ -28,12 +28,12 @@ $diameter: 26px;
     cursor: pointer;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: $light;
     z-index: 100;
     border-radius: 50%;
     border: none;
     &-icon {
-      transition: transform 0.6s ease-in-out;
+      transition: all 0.3s $ease-in-out-quart;
       font-size: 16px;
       margin-left: 7px;
     }

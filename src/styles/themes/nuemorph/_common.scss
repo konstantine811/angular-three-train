@@ -29,4 +29,5 @@
     }
   }
   @include swither($theme, $isLight);
+  @include ripple($theme, $isLight);
 }

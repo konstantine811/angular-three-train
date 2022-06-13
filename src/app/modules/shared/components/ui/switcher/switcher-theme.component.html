@@ -1,4 +1,4 @@
-<div class="switch" mat-ripple>
+<div class="switch">
   <input
     type="checkbox"
     name="status"
@@ -7,5 +7,5 @@
     [(ngModel)]="isChecked"
     (ngModelChange)="onChenge()"
   />
-  <label class="switch__label" for="switch"></label>
+  <label appRipple class="switch__label" for="switch"></label>
 </div>

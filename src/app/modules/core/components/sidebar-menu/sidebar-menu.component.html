@@ -1,1 +1,11 @@
-<p>sidebar-menu works!</p>
+<div class="sidebar bgc--primary neumorph-shadow neumorph-shadow--br">
+  <div class="neu-content">
+    <ng-content select="[routerLinks]"></ng-content>
+  </div>
+  <app-switcher
+    [size]="isThink ? 50 : 80"
+    class="sidebar__switch-theme neu-content"
+    (onChecked)="onSwitchChange($event)"
+    [isChecked]="isCheckedTheme"
+  ></app-switcher>
+</div>

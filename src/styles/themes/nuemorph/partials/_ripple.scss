@@ -1,0 +1,5 @@
+@mixin ripple($theme, $isLight) {
+  .ripple {
+    background-color: map-get($theme, primary-contrast--darkness);
+  }
+}

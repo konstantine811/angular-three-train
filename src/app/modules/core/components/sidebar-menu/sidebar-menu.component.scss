@@ -1,0 +1,17 @@
+@import "_var.scss";
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.sidebar {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &__switch-theme {
+    margin: 10px;
+  }
+}

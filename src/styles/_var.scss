@@ -1,5 +1,70 @@
+:root {
+  --light: #dedeed;
+  --light-grey: #f3f5fa;
+  --dark: #212426;
+  --dark-shadow: #121415;
+  --dark-shadow-2: #212222;
+  --light-shadow: #aaa4c4;
+  --light-shadow-2: #f1f1f7;
+}
+
 // colors
-$yellow: #ffdd1d;
-$white: rgb(255, 255, 255);
-$black-1: #18191c;
-$black-2: #1e2023;
+$light: var(--light);
+$light-grey: var(--light-grey);
+$dark: var(--dark);
+$dark-shadow: var(--dark-shadow);
+$dark-shadow-2: var(--dark-shadow-2);
+$light-shadow: var(--light-shadow);
+$light-shadow-2: var(--light-shadow-2);
+// timing functions
+$ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+// border radius
+$br--lg: 12px;
+
+// functions
+@function neu-box-shadow($first-color, $second-color, $size, $inset: false) {
+  @if ($inset) {
+    @return inset $size $size $size * 3 $first-color,
+      inset (-$size) (-$size) $size * 3 $second-color;
+  }
+  @return $size $size $size * 3 $first-color,
+    (-$size) (-$size) $size * 3 $second-color;
+}
+// dark shadows
+$dark-shadow-out--lg: neu-box-shadow($dark-shadow, $dark-shadow-2, 7px);
+$dark-shadow-in--lg: neu-box-shadow($dark-shadow, $dark-shadow-2, 7px, true);
+$dark-shadow-out--md: neu-box-shadow($dark-shadow, $dark-shadow-2, 3px);
+$dark-shadow-in--exsm: neu-box-shadow($dark-shadow, $light-shadow-2, 1px, true);
+// light shadows
+$light-shadow-out--lg: neu-box-shadow($light-shadow, $light-shadow-2, 7px);
+$lihgt-shadow-in--lg: neu-box-shadow($light-shadow, $light-shadow-2, 2px, true);
+$light-shadow-out--md: neu-box-shadow($light-shadow, $light-shadow-2, 2px);
+$light-shadow-in--exsm: neu-box-shadow(
+  $light-shadow,
+  $dark-shadow-2,
+  1px,
+  true
+);
+
+// define own theme colors
+$theme-light: (
+  primary: $light,
+  primary-contrast: $dark,
+  primary-contrast--darkness: rgba($dark, 0.3),
+  secondary: $light-grey,
+  shadow-out--lg: $light-shadow-out--lg,
+  shadow-out--md: $light-shadow-out--md,
+  shadow-in--lg: $lihgt-shadow-in--lg,
+  shadow-in--exsm: $light-shadow-in--exsm,
+);
+
+$theme-dark: (
+  primary: $dark,
+  primary-contrast: $light,
+  primary-contrast--darkness: rgba($light, 0.3),
+  secondary: $dark-shadow,
+  shadow-out--lg: $dark-shadow-out--lg,
+  shadow-out--md: $dark-shadow-out--md,
+  shadow-in--lg: $dark-shadow-in--lg,
+  shadow-in--exsm: $dark-shadow-in--exsm,
+);

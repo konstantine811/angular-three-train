@@ -1,34 +1,65 @@
+import { Observable, ReplaySubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 // config
-import { THEME_TYPES } from '@core/config/theme.config';
+import {
+  ThemeNames,
+  THEME_TYPES,
+  THEME_COLOR_NAMES,
+} from '@core/config/theme.config';
+// models
+import { ICurrentColorEntity, IColorData } from '@core/models/theme.model';
+// utils
+import { parseHexColorToNumber } from '@core/utils/color/parse-color';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeChangeService {
-  static defaultTheme = THEME_TYPES.dark;
+  private readonly defaultTheme = THEME_TYPES.dark;
   private readonly themeLocalName = 'theme';
-  private readonly style: HTMLLinkElement;
+  private themeColors: ICurrentColorEntity = {} as any;
+  private _currentMainColor$ = new ReplaySubject<IColorData>(1);
 
-  get current(): THEME_TYPES {
+  get current(): ThemeNames {
     return (
-      (localStorage.getItem(this.themeLocalName) as THEME_TYPES) ??
-      ThemeChangeService.defaultTheme
+      (localStorage.getItem(this.themeLocalName) as ThemeNames) ??
+      this.defaultTheme
     );
   }
 
-  set current(value: THEME_TYPES) {
+  get currentMainColor$(): Observable<IColorData> {
+    return this._currentMainColor$;
+  }
+
+  set current(value: ThemeNames) {
+    this._currentMainColor$.next(this.themeColors[value]);
+    const currentThemeClass = localStorage.getItem(this.themeLocalName);
+    if (currentThemeClass) {
+      document.body.classList.remove(currentThemeClass);
+    }
     localStorage.setItem(this.themeLocalName, value);
-    this.style.href = `/${value}.css`;
+    document.body.classList.add(value);
+  }
+
+  getGlobalColors() {
+    THEME_COLOR_NAMES.forEach((item) => {
+      const color = getComputedStyle(document.documentElement).getPropertyValue(
+        `--${item.color}`
+      );
+      this.themeColors[item.themeName] = {
+        hex: color,
+        hexNumber: parseHexColorToNumber(color),
+      };
+    });
   }
 
   constructor() {
-    this.style = document.createElement('link');
-    this.style.rel = 'stylesheet';
-    document.head.appendChild(this.style);
-
-    if (localStorage.getItem(this.themeLocalName) !== undefined) {
-      this.style.href = `/${this.current}.css`;
+    const currentThemeClass = localStorage.getItem(this.themeLocalName);
+    if (!currentThemeClass) {
+      document.body.classList.add(this.defaultTheme);
+    } else {
+      document.body.classList.add(currentThemeClass);
     }
+    this.getGlobalColors();
   }
 }

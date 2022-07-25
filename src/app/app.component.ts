@@ -4,7 +4,7 @@ import { MENU_CONFIG } from '@core/config/menu.config';
 // models
 import { IMenuConfig, IMenuTree } from '@core/models/menu.model';
 // utils
-import { setMenuTreeData } from '@core/utils/tree-node/met-tree-node.utils';
+import { setMenuTreeData } from '@core/utils/tree-node/tree-node.utils';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,7 @@ export class AppComponent {
   readonly MENU_CONFIG: IMenuConfig[] = MENU_CONFIG;
   menuTreeData: IMenuTree[];
   isMultiOpen = false;
-  isThinkSidebar = false;
+  isThinkSidebar = true;
   showFiller = false;
 
   constructor() {

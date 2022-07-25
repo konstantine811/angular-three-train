@@ -1,9 +1,11 @@
 <div class="frame bgc--primary">
   <div
     class="frame__sidebar"
-    [ngStyle]="{ 'width.px': isThinkSidebar ? '80' : '295' }"
+    [ngStyle]="{
+      'width.px': isThinkSidebar ? '80' : '295'
+    }"
   >
-    <button appRipple (click)="toggleSideBar()" class="frame__switch">
+    <button appRipple (click)="toggleSideBar()" class="frame__switch btn">
       <span
         [ngStyle]="{
           transform: isThinkSidebar ? 'scaleX(-1)' : 'scaleX(1)',
@@ -13,6 +15,14 @@
         >arrow_back_ios</span
       >
     </button>
-    <app-sidebar-menu class="frame__sidebar-wrap"></app-sidebar-menu>
+    <app-sidebar-menu [isThink]="isThinkSidebar" class="frame__sidebar-wrap">
+      <ng-container routerLinks>
+        <a [routerLink]="'main'">Main</a>
+        <a [routerLink]="'main/map'">Map</a>
+      </ng-container>
+    </app-sidebar-menu>
+  </div>
+  <div class="frame__router">
+    <router-outlet></router-outlet>
   </div>
 </div>

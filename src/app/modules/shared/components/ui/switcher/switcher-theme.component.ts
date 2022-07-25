@@ -1,6 +1,11 @@
-import { Component, ElementRef, Input, OnInit } from '@angular/core';
-import { ThemeNames, THEME_TYPES } from '@core/config/theme.config';
-import { ThemeChangeService } from '@core/services/ui/theme-change.service';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-switcher',
@@ -14,21 +19,15 @@ export class SwitcherThemeComponent implements OnInit {
       `${size}px`
     );
   }
-  isChecked = false;
-  constructor(
-    private themeChangeService: ThemeChangeService,
-    private elRef: ElementRef
-  ) {}
+  @Output() onChecked: EventEmitter<boolean> = new EventEmitter();
+  @Input() isChecked = false;
+  constructor(private elRef: ElementRef) {}
 
   onChenge() {
-    if (this.isChecked) {
-      this.themeChangeService.current = THEME_TYPES.light;
-    } else {
-      this.themeChangeService.current = THEME_TYPES.dark;
-    }
+    this.onChecked.emit(this.isChecked);
   }
 
   ngOnInit(): void {
-    this.isChecked = this.themeChangeService.current === ThemeNames.light;
+    this.onChenge();
   }
 }

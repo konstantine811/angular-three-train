@@ -21,7 +21,8 @@
     "lib": ["es2020", "dom"],
     "paths": {
       "@core/*": ["./src/app/modules/core/*"],
-      "@shared/*": ["./src/app/modules/shared/*"]
+      "@shared/*": ["./src/app/modules/shared/*"],
+      "@portfolio/*": ["./src/app/modules/portfolio/*"]
     }
   },
   "angularCompilerOptions": {

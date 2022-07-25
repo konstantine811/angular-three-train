@@ -1,0 +1,6 @@
+@mixin canvas($theme, $isLight) {
+  .three-canvas {
+    box-shadow: map-get($theme, shadow-out--lg);
+    border-color: map-get($theme, secondary);
+  }
+}

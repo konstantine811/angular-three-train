@@ -1,4 +1,14 @@
 @mixin define-theme($theme, $isLight) {
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  * {
+    color: map-get($theme, primary-contrast);
+  }
   .bgc {
     &--primary {
       background: map-get($theme, primary);
@@ -16,7 +26,7 @@
         width: 100%;
         height: 100%;
         box-shadow: map-get($theme, shadow-out--lg);
-        filter: blur(1px);
+        filter: blur(2px);
       }
     } @else {
       box-shadow: map-get($theme, shadow-out--lg);
@@ -30,4 +40,6 @@
   }
   @include swither($theme, $isLight);
   @include ripple($theme, $isLight);
+  @include btn($theme, $isLight);
+  @include canvas($theme, $isLight);
 }

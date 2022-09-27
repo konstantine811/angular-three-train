@@ -1,0 +1,12 @@
+@mixin txt($theme, $isLight) {
+  .txt {
+    &-color {
+      &--success {
+        color: $success;
+      }
+      &--warn {
+        color: $warn;
+      }
+    }
+  }
+}

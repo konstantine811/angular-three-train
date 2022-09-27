@@ -1,0 +1,55 @@
+<div class="form-wrap bgc--primary neumorph-shadow neumorph-shadow--br">
+  <form [formGroup]="signUpForm" class="form">
+    <div class="neu-content">
+      <h2 class="form__title">Welcome to learn Web Development</h2>
+      <app-input
+        class="form__group"
+        placeholder="Email"
+        inputType="email"
+        iconName="mail"
+        formControlName="email"
+      ></app-input>
+      <app-input
+        class="form__group"
+        placeholder="Nickname"
+        inputType="text"
+        iconName="person"
+        formControlName="nickName"
+      ></app-input>
+      <app-input
+        class="form__group"
+        placeholder="Password"
+        inputType="password"
+        iconName="key"
+        formControlName="password"
+      ></app-input>
+      <app-input
+        class="form__group"
+        placeholder="Confirm password"
+        inputType="password"
+        iconName="key"
+        formControlName="confirmPassword"
+      ></app-input>
+      <div class="form__group d-flex justify-c_center">
+        <button
+          [disabled]="signUpForm.invalid"
+          appRipple
+          type="submit"
+          class="btn"
+          (click)="onSubmit()"
+        >
+          Sign Up
+        </button>
+      </div>
+    </div>
+  </form>
+  <p class="txt-align--center">
+    I already have account?
+    <a
+      [routerLink]="'../' + APP_ROUTES.auth.children.signIn"
+      class="txt-color--success"
+      href=""
+      >Login in</a
+    >
+  </p>
+</div>

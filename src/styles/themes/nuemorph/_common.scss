@@ -18,6 +18,7 @@
     }
   }
   .neumorph-shadow {
+    position: relative;
     @if $isLight {
       &:before {
         content: "";
@@ -27,6 +28,8 @@
         height: 100%;
         box-shadow: map-get($theme, shadow-out--lg);
         filter: blur(2px);
+        left: 0;
+        top: 0;
       }
     } @else {
       box-shadow: map-get($theme, shadow-out--lg);
@@ -38,8 +41,9 @@
       }
     }
   }
-  @include swither($theme, $isLight);
+  @include switcher($theme, $isLight);
   @include ripple($theme, $isLight);
   @include btn($theme, $isLight);
   @include canvas($theme, $isLight);
+  @include txt($theme, $isLight);
 }

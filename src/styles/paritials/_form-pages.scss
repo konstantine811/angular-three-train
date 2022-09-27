@@ -1,0 +1,15 @@
+.form-wrap {
+  padding: 2.5rem;
+  max-width: 506px;
+  width: 100%;
+}
+
+.form {
+  &__title {
+    text-align: center;
+  }
+  &__group {
+    user-select: none;
+    margin-bottom: 30px;
+  }
+}

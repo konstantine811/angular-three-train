@@ -4,17 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { APP_ROUTES } from '@core/config/app-route.config';
 // components
 import { MainComponent } from './components/main/main.component';
-import { MapComponent } from './components/map/map.component';
 
 const routes: Routes = [
   {
-    path: APP_ROUTES.main.children.portfolio,
+    path: '',
     component: MainComponent,
     pathMatch: 'full',
-  },
-  {
-    path: APP_ROUTES.main.children.map,
-    component: MapComponent,
   },
 ];
 

@@ -1,0 +1,11 @@
+h3 {
+  font-size: $h3;
+}
+
+.txt {
+  &-align {
+    &--center {
+      text-align: center;
+    }
+  }
+}

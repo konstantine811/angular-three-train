@@ -1,0 +1,36 @@
+<div class="frame bgc--primary">
+  <header class="frame__header">
+    <button (click)="onSignOut()" class="btn">Sign out</button>
+  </header>
+  <div
+    class="frame__sidebar"
+    [ngStyle]="{
+      'width.px': isThinkSidebar ? '80' : '295'
+    }"
+  >
+    <button
+      appRipple
+      (click)="toggleSideBar()"
+      class="frame__switch btn-switch"
+    >
+      <span
+        [ngStyle]="{
+          transform: isThinkSidebar ? 'scaleX(-1)' : 'scaleX(1)',
+          'margin-left.px': isThinkSidebar ? -4 : 7
+        }"
+        class="frame__switch-icon material-icons"
+        >arrow_back_ios</span
+      >
+    </button>
+    <app-sidebar-menu [isThink]="isThinkSidebar" class="frame__sidebar-wrap">
+      <ng-container routerLinks>
+        <a [routerLink]="APP_ROUTES.dashboard.children.portfolio">Main</a>
+        <a [routerLink]="APP_ROUTES.dashboard.children.map">Map train</a>
+        <a [routerLink]="APP_ROUTES.dashboard.children.uiTest">UI Test</a>
+      </ng-container>
+    </app-sidebar-menu>
+  </div>
+  <div class="frame__router">
+    <router-outlet></router-outlet>
+  </div>
+</div>

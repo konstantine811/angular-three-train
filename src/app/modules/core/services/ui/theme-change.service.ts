@@ -41,6 +41,18 @@ export class ThemeChangeService {
     document.body.classList.add(value);
   }
 
+  constructor() {}
+
+  init() {
+    const currentThemeClass = localStorage.getItem(this.themeLocalName);
+    if (!currentThemeClass) {
+      document.body.classList.add(this.defaultTheme);
+    } else {
+      document.body.classList.add(currentThemeClass);
+    }
+    this.getGlobalColors();
+  }
+
   getGlobalColors() {
     THEME_COLOR_NAMES.forEach((item) => {
       const color = getComputedStyle(document.documentElement).getPropertyValue(
@@ -51,15 +63,5 @@ export class ThemeChangeService {
         hexNumber: parseHexColorToNumber(color),
       };
     });
-  }
-
-  constructor() {
-    const currentThemeClass = localStorage.getItem(this.themeLocalName);
-    if (!currentThemeClass) {
-      document.body.classList.add(this.defaultTheme);
-    } else {
-      document.body.classList.add(currentThemeClass);
-    }
-    this.getGlobalColors();
   }
 }

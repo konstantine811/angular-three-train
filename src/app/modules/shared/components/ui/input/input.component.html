@@ -1,0 +1,23 @@
+<div
+  class="input"
+  *ngIf="control"
+  [ngClass]="{
+    error: control.touched && !control.valid,
+    success: control.touched && control.valid
+  }"
+>
+  <input
+    [ngStyle]="{ 'padding-left.px': iconName ? 48 : 13 }"
+    class="input__box"
+    [type]="inputType"
+    [formControl]="control"
+    [autocomplete]="inputType"
+  />
+  <label
+    [ngStyle]="{ 'left.px': iconName ? 48 : 13 }"
+    *ngIf="!control.value"
+    class="input__placeholder"
+    >{{ placeholder }}</label
+  >
+  <mat-icon *ngIf="iconName" class="input__icon">{{ iconName }}</mat-icon>
+</div>

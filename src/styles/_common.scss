@@ -1,6 +1,21 @@
+html {
+  font-size: 16px;
+  @media all and (max-width: $sm) {
+    font-size: 12px;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
+}
+
+a {
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .neu-content {
@@ -10,4 +25,31 @@ body {
 
 .hidden {
   overflow: hidden;
+}
+
+// flex
+.d-flex {
+  display: flex;
+}
+
+.justify-c {
+  &_space-between {
+    justify-content: space-between;
+  }
+  &_center {
+    justify-content: center;
+  }
+}
+
+.align-items {
+  &_center {
+    align-items: center;
+  }
+}
+
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 15px;
 }

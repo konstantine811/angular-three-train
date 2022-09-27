@@ -5,11 +5,10 @@ import { PortfolioRoutingModule } from './portfolio-routing.module';
 
 // components
 import { MainComponent } from './components/main/main.component';
-import { MapComponent } from './components/map/map.component';
 
 @NgModule({
-  declarations: [MainComponent, MapComponent],
+  declarations: [MainComponent],
   imports: [CommonModule, PortfolioRoutingModule],
-  exports: [],
+  exports: [MainComponent],
 })
 export class PortfolioModule {}

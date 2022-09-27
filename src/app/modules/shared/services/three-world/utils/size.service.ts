@@ -63,13 +63,13 @@ export class SizeService {
     });
     this._observer.observe(el);
     this.obs.push(
-      combineLatest([this.width$, this.height$]).subscribe(
-        ([width, height]) => {
+      combineLatest([this.width$, this.height$])
+        .pipe(debounceTime(100))
+        .subscribe(([width, height]) => {
           this._width = width;
           this._height = height;
           this._onResize$.next();
-        }
-      )
+        })
     );
   }
 

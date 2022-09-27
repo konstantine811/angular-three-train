@@ -1,25 +1,40 @@
 :root {
   --light: #dedeed;
+  --light-2: #dedeed3c;
   --light-grey: #f3f5fa;
   --dark: #212426;
+  --dark-2: #191a1c;
+  --dark-3: #2124263b;
   --dark-shadow: #121415;
   --dark-shadow-2: #212222;
   --light-shadow: #aaa4c4;
   --light-shadow-2: #f1f1f7;
+  --warn: rgb(255, 71, 87);
+  --success: rgb(70, 201, 58);
 }
-
+// breakpoints
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
 // colors
 $light: var(--light);
+$light-2: var(--light-2);
 $light-grey: var(--light-grey);
 $dark: var(--dark);
+$dark-2: var(--dark-3);
 $dark-shadow: var(--dark-shadow);
 $dark-shadow-2: var(--dark-shadow-2);
 $light-shadow: var(--light-shadow);
 $light-shadow-2: var(--light-shadow-2);
+$warn: var(--warn);
+$success: var(--success);
 // timing functions
 $ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
 // border radius
 $br--lg: 12px;
+// typography
+$fs: 20px;
+$h3: 28px;
 
 // functions
 @function neu-box-shadow($first-color, $second-color, $size, $inset: false) {
@@ -34,11 +49,15 @@ $br--lg: 12px;
 $dark-shadow-out--lg: neu-box-shadow($dark-shadow, $dark-shadow-2, 7px);
 $dark-shadow-in--lg: neu-box-shadow($dark-shadow, $dark-shadow-2, 7px, true);
 $dark-shadow-out--md: neu-box-shadow($dark-shadow, $dark-shadow-2, 3px);
+$dark-shadow-out--sm: neu-box-shadow($dark-shadow, $dark-shadow-2, 2px);
+$dark-shadow-out--exsm: neu-box-shadow($dark-shadow, $dark-shadow-2, 1px);
 $dark-shadow-in--exsm: neu-box-shadow($dark-shadow, $light-shadow-2, 1px, true);
 // light shadows
 $light-shadow-out--lg: neu-box-shadow($light-shadow, $light-shadow-2, 7px);
 $lihgt-shadow-in--lg: neu-box-shadow($light-shadow, $light-shadow-2, 2px, true);
 $light-shadow-out--md: neu-box-shadow($light-shadow, $light-shadow-2, 2px);
+$light-shadow-out--sm: neu-box-shadow($light-shadow, $light-shadow-2, 1px);
+$light-shadow-out--exsm: neu-box-shadow($light-shadow, $light-shadow-2, 0.5px);
 $light-shadow-in--exsm: neu-box-shadow(
   $light-shadow,
   $dark-shadow-2,
@@ -50,10 +69,12 @@ $light-shadow-in--exsm: neu-box-shadow(
 $theme-light: (
   primary: $light,
   primary-contrast: $dark,
-  primary-contrast--darkness: rgba($dark, 0.3),
+  primary-contrast--darkness: $dark-2,
   secondary: $light-grey,
   shadow-out--lg: $light-shadow-out--lg,
   shadow-out--md: $light-shadow-out--md,
+  shadow-out--sm: $light-shadow-out--sm,
+  shadow-out--exsm: $light-shadow-out--exsm,
   shadow-in--lg: $lihgt-shadow-in--lg,
   shadow-in--exsm: $light-shadow-in--exsm,
 );
@@ -61,10 +82,12 @@ $theme-light: (
 $theme-dark: (
   primary: $dark,
   primary-contrast: $light,
-  primary-contrast--darkness: rgba($light, 0.3),
+  primary-contrast--darkness: $light-2,
   secondary: $dark-shadow,
   shadow-out--lg: $dark-shadow-out--lg,
   shadow-out--md: $dark-shadow-out--md,
+  shadow-out--sm: $dark-shadow-out--sm,
+  shadow-out--exsm: $dark-shadow-out--exsm,
   shadow-in--lg: $dark-shadow-in--lg,
   shadow-in--exsm: $dark-shadow-in--exsm,
 );

@@ -12,14 +12,6 @@ import { EnvironmentService } from '@shared/services/three-world/worlds/environm
 // config
 import { SOURCE_PATH_DATA } from '@portfolio/config/portfolio.config';
 import { Subscription } from 'rxjs';
-import {
-  BoxGeometry,
-  Mesh,
-  MeshBasicMaterial,
-  PerspectiveCamera,
-  Scene,
-  WebGLRenderer,
-} from 'three';
 
 @Component({
   selector: 'app-main',
